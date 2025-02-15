@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telephone Observer</title>
+</head>
+<body>
+
+    <h1>Telephone Observer Test</h1>
+    <button onclick="runTest()">Test Telephone</button>
+
+    <script src="telephone.js"></script>
+
+    <script>
+        function runTest() {
+            const phone = new Telephone();
+
+            phone.addPhoneNumber("2347023232");
+            phone.addPhoneNumber("08012345678");
+
+            phone.addObserver(new PrintObserver());
+            phone.addObserver(new DialObserver());
+
+            phone.dialPhoneNumber("2347023232");
+            phone.dialPhoneNumber("08012345678");
+            phone.dialPhoneNumber("08123456789"); // Not added, should show an error
+        }
+    </script>
+    
+
+</body>
+</html>
